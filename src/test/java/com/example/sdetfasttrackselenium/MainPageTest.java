@@ -15,7 +15,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPageTest {
     MainPage mainPage = new MainPage();
-
     @BeforeAll
     public static void setUpAll() {
         Configuration.browserSize = "1280x800";
