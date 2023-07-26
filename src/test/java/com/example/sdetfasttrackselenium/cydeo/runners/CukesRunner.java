@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
         //cucumber.json i olusturur
 
         features = "src/test/resources/features",
-        glue = "com/vytrack/step_definitions",
+        glue = "com/example/sdetfasttrackselenium/cydeo/step_definitions",
         dryRun=false,
-        tags="@smoke"
+        tags="@smoke and not @webTableLogin"
         //eski versiyonu   tags={"@driver","@VYT-123"}
 
         //OR LU DA YAPILABILIR
