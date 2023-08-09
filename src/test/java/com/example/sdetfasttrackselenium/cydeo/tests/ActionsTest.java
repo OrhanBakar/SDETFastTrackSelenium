@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class ActionsTest {
@@ -20,7 +21,6 @@ public class ActionsTest {
         //TC#1
         //Navigate to https://practice.cydeo.com/hovers
         Driver.get().get("https://practice.cydeo.com/hovers");
-
 
         //2. Hover over the first image
         actions.moveToElement(actionsPage.image1).perform();
@@ -52,7 +52,7 @@ public class ActionsTest {
 
         //2. Right-click on the A/B Testing link
         //3. Open link in new window
-        actions.contextClick(actionsPage.abTestLink)
+        actions.contextClick(actionsPage.abTestLink)//right click yapar
                 .sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.RETURN).perform();//Keys.Return ü secmesi icin kullaniyoruz
 
         //4. Verify title is "No A/B Test"
@@ -74,5 +74,10 @@ public class ActionsTest {
 
 
     }
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
+    }
+
 
 }

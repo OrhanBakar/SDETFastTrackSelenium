@@ -3,6 +3,7 @@ package com.example.sdetfasttrackselenium.cydeo.tests;
 import com.example.sdetfasttrackselenium.cydeo.pages.RadioButtonsPage;
 import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class RadioButtonsTest {
@@ -30,5 +31,10 @@ public class RadioButtonsTest {
 
         Assert.assertTrue(radioButtonsPage.greenButton.isEnabled(),"Green button is not enabled");*/
     }
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
+    }
+
 
 }

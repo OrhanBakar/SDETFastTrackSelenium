@@ -27,7 +27,6 @@ public class DropdownTest {
     public void stateDropdownTest(){
         // TC#1
         Select stateSelect=new Select(dropdownPage.stateDropdown);
-
         //2. Select Illinois --> select by visible text
         stateSelect.selectByVisibleText("Illinois");
         //getFirstSelectedOption() bize en son sectigimiz optionu verir. Bunu alamak icin de
@@ -44,6 +43,18 @@ public class DropdownTest {
         stateSelect.selectByIndex(5);
         actualOption=stateSelect.getFirstSelectedOption().getText();
         Assert.assertEquals(actualOption,"California");
+
+        //5. Select all the states and confirm that Illinois exist in the options
+        boolean containsExpectedState=false;
+        for (WebElement stateOption:stateSelect.getOptions()){//Tüm optionlari görüntüledik
+            System.out.println("State options = " + stateOption.getText());
+            if (stateOption.getText().equals("Illinois")){
+                containsExpectedState=true;
+                break;
+            }
+        }
+        Assert.assertTrue(containsExpectedState,"Dropdown does not contain ' Illinois '");
+
 
     }
 
@@ -79,7 +90,7 @@ public class DropdownTest {
     //3. Print out all the selected values and verify each is selected
     for (WebElement eachOption : languagesOptions) {
         languagesSelect.selectByVisibleText(eachOption.getText());
-        System.out.println("eachOption.getText() = " + eachOption.getText());
+        System.out.println("Programming language Options = " + eachOption.getText());
         Assert.assertTrue(eachOption.isSelected(),"Language option did not selected");
     }
 

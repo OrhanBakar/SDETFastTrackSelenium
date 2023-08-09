@@ -6,6 +6,7 @@ import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -40,4 +41,9 @@ GoogleSearchPage googleSearchPage=new GoogleSearchPage();
         System.out.println("This only comes if soft assertion fails");
         //softAssert.assertAll();
     }
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
+    }
+
 }

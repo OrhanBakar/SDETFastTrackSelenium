@@ -3,6 +3,7 @@ package com.example.sdetfasttrackselenium.cydeo.tests;
 import com.example.sdetfasttrackselenium.cydeo.pages.FileUploadPage;
 import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class FileUploadTest {
@@ -15,4 +16,9 @@ public class FileUploadTest {
         Assert.assertTrue(fileUploadPage.upLoadedFiles.isDisplayed());
         Assert.assertEquals(fileUploadPage.headerFileUploaded.getText(),"File Uploaded!");
     }
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
+    }
+
 }

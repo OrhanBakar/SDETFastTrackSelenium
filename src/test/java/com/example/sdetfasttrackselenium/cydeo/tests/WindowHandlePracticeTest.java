@@ -3,6 +3,7 @@ package com.example.sdetfasttrackselenium.cydeo.tests;
 import com.example.sdetfasttrackselenium.cydeo.pages.WindowHandlePracticePage;
 import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.util.Set;
@@ -61,5 +62,9 @@ public class WindowHandlePracticeTest {
 
     }
 
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
+    }
 
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.util.Locale;
@@ -39,4 +40,9 @@ public class JavaFakerTest {
         Assert.assertEquals(javaFakerPage.orderConfirmMessage.getText(),"New order has been successfully added.");
 
     }
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
+    }
+
 }
