@@ -15,8 +15,21 @@ public class WebTableLoginPage {
     @FindBy(css = "button[class$='submit']")
     public WebElement loginButton;
 
+    public void login(String user_name,String pass_word){
 
-    public WebTableLoginPage(){
+        usernameBox.sendKeys(user_name);
+        passwordBox.sendKeys(pass_word);
+        loginButton.click();
+    }
+    public void login(){
+
+        usernameBox.sendKeys("Test");
+        passwordBox.sendKeys("Tester");
+        loginButton.click();
+    }
+
+
+    public WebTableLoginPage() {
         PageFactory.initElements(Driver.get(),this);
     }
 }

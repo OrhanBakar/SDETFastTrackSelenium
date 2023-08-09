@@ -9,6 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class WebTableLoginStepdefs {
     WebTableLoginPage webTableLoginPage=new WebTableLoginPage();
     @Given("user is on the login page of the webtable app")
@@ -49,5 +51,32 @@ public class WebTableLoginStepdefs {
     @Then("user should see url contains login")
     public void userShouldSeeUrlContainsLogin() {
         Assert.assertTrue(Driver.get().getCurrentUrl().contains("login"));
+    }
+
+    @When("user enters username {string}")
+    public void userEntersUsername(String username) {
+        webTableLoginPage.usernameBox.sendKeys(username);
+    }
+
+    @And("user enters password {string}")
+    public void userEntersPassword(String password) {
+        webTableLoginPage.passwordBox.sendKeys(password);
+    }
+
+    @When("user enters username {string} password {string} and logins")
+    public void userEntersUsernamePasswordAndLogins(String username, String password) {
+        webTableLoginPage.login(username,password);
+    }
+
+    @When("user enters the credentials below")
+    public void userEntersTheCredentialsBelow(Map<String,String>credentials) {
+        //Böyle de olur.Datatable daki bilgilere bu sekilde ulasabilirsin
+        webTableLoginPage.login(credentials.get("username"),credentials.get("password"));
+       /* Böyle de olur
+        webTableLoginPage.usernameBox.sendKeys(credentials.get("username"));
+        webTableLoginPage.passwordBox.sendKeys(credentials.get("password"));
+        webTableLoginPage.loginButton.click();
+        */
+
     }
 }

@@ -20,6 +20,10 @@ public class GoogleSearchPage {
     @FindBy(id="L2AGLb")
     public WebElement acceptButton;
 
+    @FindBy(xpath = "//div[@class='kp-header']//a[class='FLP8od']")
+    public WebElement linkCapital;
+
+
 
 
 }
