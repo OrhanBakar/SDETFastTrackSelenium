@@ -24,7 +24,7 @@ public class WindowHandlePracticeTest {
         //2. Assert the title is "Windows"
         Assert.assertEquals(Driver.get().getTitle(),"Windows");
 
-        //3. Clich to "Click Here" link
+        //3. Click to "Click Here" link
         windowHandlePracticePage.clickHereLink.click();
         String clickHereWindow=Driver.get().getWindowHandle();
         System.out.println("clickHereWindow = " + clickHereWindow);

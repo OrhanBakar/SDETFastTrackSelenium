@@ -23,9 +23,9 @@ GoogleSearchPage googleSearchPage=new GoogleSearchPage();
     @Test
     public void hardAssertionTest() throws InterruptedException {
         Driver.get().get(ConfigurationReader.get("googleUrl"));
-        //googleSearchPage.acceptButton.click();
+        googleSearchPage.acceptButton.click();
         Thread.sleep(200);
-        googleSearchPage.searchBox.sendKeys("app" + Keys.ENTER);
+        googleSearchPage.searchBox.sendKeys("apple" + Keys.ENTER);
         Assert.assertEquals(Driver.get().getTitle(),"apple - Google Search");
         System.out.println("This only comes if hard assertion fails");
     }
@@ -33,7 +33,7 @@ GoogleSearchPage googleSearchPage=new GoogleSearchPage();
     @Test
     public void softAssertionTest() throws InterruptedException {
         Driver.get().get(ConfigurationReader.get("googleUrl"));
-        //googleSearchPage.acceptButton.click();
+        googleSearchPage.acceptButton.click();
         Thread.sleep(200);
         googleSearchPage.searchBox.sendKeys("apple" + Keys.ENTER);
         SoftAssert softAssert=new SoftAssert();

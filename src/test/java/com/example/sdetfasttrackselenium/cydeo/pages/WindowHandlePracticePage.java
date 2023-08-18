@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class WindowHandlePracticePage {
 
-    public WindowHandlePracticePage(){
-        PageFactory.initElements(Driver.get(),this);
+    public WindowHandlePracticePage() {
+        PageFactory.initElements(Driver.get(), this);
     }
 
-@FindBy(linkText = "Click Here")
+    @FindBy(linkText = "Click Here")
     public WebElement clickHereLink;
 
     @FindBy(linkText = "CYDEO")
