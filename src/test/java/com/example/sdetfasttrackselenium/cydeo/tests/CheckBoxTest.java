@@ -5,21 +5,34 @@ import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class CheckBoxTest {
-    CheckBoxPage checkBoxPage=new CheckBoxPage();
+    CheckBoxPage checkBoxPage = new CheckBoxPage();
 
     @Test
-    public void checkBoxTest(){
+    public void checkBoxTestSoftAssert() {
+        Driver.get().get("https://practice.cydeo.com/checkboxes");
+        checkBoxPage.checkBox1.click();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(checkBoxPage.checkBox1.isSelected());
+        checkBoxPage.checkBox1.click();
+        softAssert.assertFalse(checkBoxPage.checkBox1.isSelected(), "Checkbox 1 is not selected");
+        softAssert.assertAll();
+
+    }
+
+    @Test
+    public void checkBoxTest() {
         Driver.get().get("https://practice.cydeo.com/checkboxes");
         checkBoxPage.checkBox1.click();
         Assert.assertTrue(checkBoxPage.checkBox1.isSelected());
         checkBoxPage.checkBox1.click();
-        Assert.assertFalse(checkBoxPage.checkBox1.isSelected(),"Checkbox 1 is not selected");
+        Assert.assertFalse(checkBoxPage.checkBox1.isSelected(), "Checkbox 1 is not selected");
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         Driver.closeDriver();
     }
 

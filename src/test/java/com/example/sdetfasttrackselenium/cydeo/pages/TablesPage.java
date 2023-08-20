@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.*;
 
+import static org.testng.Assert.assertEquals;
+
 public class TablesPage {
     @FindBy(id = "table1")
     private WebElement table1;
@@ -146,7 +148,7 @@ within those rows to get the corresponding data.*/
         return dataMap;
     }
 
-    private void printDataMap(Map<String, String> dataMap) {
+    private void printDataMap(Map<String, String> dataMap){
         if (!dataMap.isEmpty()) {
             for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue());

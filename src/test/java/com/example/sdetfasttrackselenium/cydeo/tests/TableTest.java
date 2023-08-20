@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.Assert.assertEquals;
+
 public class TableTest {
     TablesPage tablesPage=new TablesPage();
     @BeforeMethod
@@ -25,7 +27,8 @@ public class TableTest {
    }
    @Test
    public void testGetAllDataForFullName(){
-        tablesPage.getAllDataForFullName("Frank","Bach");
+        tablesPage.getAllDataForFullName("Jason","Doe");
+
    }
    @Test
    public void getAllEmails(){

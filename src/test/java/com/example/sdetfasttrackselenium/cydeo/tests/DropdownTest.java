@@ -18,14 +18,14 @@ public class DropdownTest {
     @BeforeMethod
     public void setUp(){
         //1. Go to https://practice.cydeo.com/dropdown
-        Driver.get().manage().window().maximize();
-        Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
         Driver.get().get("https://practice.cydeo.com/dropdown");
     }
     @Test
 
     public void stateDropdownTest(){
         // TC#1
+        //stateSelect objesine dropdown'in locatorini assign ediyorum
         Select stateSelect=new Select(dropdownPage.stateDropdown);
         //2. Select Illinois --> select by visible text
         stateSelect.selectByVisibleText("Illinois");
@@ -45,18 +45,9 @@ public class DropdownTest {
         Assert.assertEquals(actualOption,"California");
 
         //5. Select all the states and confirm that Illinois exist in the options
-        boolean containsExpectedState=false;
-        for (WebElement stateOption:stateSelect.getOptions()){//Tüm optionlari görüntüledik
-            System.out.println("State options = " + stateOption.getText());
-            if (stateOption.getText().equals("Illinois")){
-                containsExpectedState=true;
-                break;
-            }
-        }
-        Assert.assertTrue(containsExpectedState,"Dropdown does not contain ' Illinois '");
-
-
+        dropdownPage.dropdownOptionsCheck(dropdownPage.stateDropdown,"Illinois");
     }
+
 
     @Test
 
