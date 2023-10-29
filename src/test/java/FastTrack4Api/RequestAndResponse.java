@@ -32,7 +32,7 @@ public class RequestAndResponse extends TestBase {
     public void test2(){
 
         Response response= given().accept(ContentType.JSON)
-                .when().get("/api/spartans/25");
+                .when().get("//api/spartans/25");
         Assertions.assertEquals(200,response.statusCode());
         Assertions.assertEquals("Valentin",response.path("name"));
         Assertions.assertEquals("Male",response.path("gender"));

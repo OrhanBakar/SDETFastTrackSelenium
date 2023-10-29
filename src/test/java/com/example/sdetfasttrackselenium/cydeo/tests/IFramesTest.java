@@ -10,19 +10,19 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class IFramesTest {
+
+    IFramesPage iFramesPage=new IFramesPage();
     @BeforeMethod
     public void setUp() {
         //1. Go to https://practice.cydeo.com/javascript_alerts
-        Driver.get().manage().window().maximize();
-        Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Driver.get().get("https://practice.cydeo.com/iframe");
     }
-    IFramesPage iFramesPage=new IFramesPage();
+
     @Test
     public void iFrameTest(){
-        Driver.get().switchTo().frame(0);
+        //Driver.get().switchTo().frame(0);
         //Driver.get().switchTo().frame("mce_0_ifr");
-        //Driver.get().switchTo().frame(iFramesPage.iFrame);
+        Driver.get().switchTo().frame(iFramesPage.iFrame);
 
         //2. Assert: "Your content goes here" text is displayed
         String actualText= iFramesPage.contentTextArea.getText();
@@ -39,8 +39,6 @@ public class IFramesTest {
 
 
     }
-
-
 
     @AfterMethod
     public void tearDown() {

@@ -10,12 +10,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.Locale;
 
 public class JavaFakerTest {
     Faker faker=new Faker();
     JavaFakerPage javaFakerPage = new JavaFakerPage();
-    WebDriverWait wait=new WebDriverWait(Driver.get(),15);
+    WebDriverWait wait=new WebDriverWait(Driver.get(), Duration.ofSeconds(15));
     @Test
     public void javaFakerTest(){
         Driver.get().get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");

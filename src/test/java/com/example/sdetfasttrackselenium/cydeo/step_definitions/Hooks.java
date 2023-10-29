@@ -1,9 +1,7 @@
 package com.example.sdetfasttrackselenium.cydeo.step_definitions;
 
 import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 

@@ -10,7 +10,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -48,12 +47,7 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
                     break;
-                case "opera":
-                    WebDriverManager.operadriver().setup();
-                    driverPool.set(new OperaDriver());
-                    driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    break;
+
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
@@ -102,14 +96,14 @@ public class Driver {
 
             }
         }
-
+//Same driver instance will be returned every time we call Driver.get() method
         return driverPool.get();
     }
 
     public static void closeDriver() {
 
         if (driverPool.get()!=null){
-            driverPool.get().quit();
+            driverPool.get().quit();//This kills the session and the value will not be null
             driverPool.remove();
         }
 

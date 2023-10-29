@@ -7,6 +7,6 @@ public class TestBase {
     @BeforeAll
 
     public static void setUp(){
-        String baseURI = "http://3.87.65.105:8000";
+        String baseURI = "http://3.80.111.193:8000/";
     }
 }

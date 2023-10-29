@@ -2,11 +2,13 @@ package com.example.sdetfasttrackselenium.cydeo.tests;
 
 import com.example.sdetfasttrackselenium.cydeo.pages.TablesPage;
 import com.example.sdetfasttrackselenium.cydeo.utilities.Driver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -19,6 +21,8 @@ public class TableTest {
     public void setUp(){
         //1. Navigate to the "https://practice.cydeo.com/tables"
         Driver.get().get("https://practice.cydeo.com/tables");
+        WebDriverWait wait=new WebDriverWait(Driver.get(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.urlContains("tables"));
     }
    @Test
    public void variableTestInWebTable(){
@@ -30,7 +34,8 @@ public class TableTest {
         tablesPage.getAllDataForFullName("Jason","Doe");
 
    }
-   @Test
+
+    @Test
    public void getAllEmails(){
        List<String> emailAddresses=tablesPage.getAllEmailAddresses();
        for (String email:emailAddresses){

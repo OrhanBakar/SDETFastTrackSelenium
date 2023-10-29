@@ -13,23 +13,20 @@ import java.util.concurrent.TimeUnit;
 public class AlertTest {
 
     AlertPage alertPage = new AlertPage();
+    Alert alert = Driver.get().switchTo().alert();
 
     @BeforeMethod
     public void setUp() {
         //1. Go to https://practice.cydeo.com/javascript_alerts
-        Driver.get().manage().window().maximize();
-        Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        Driver.get().get("https://practice.cydeo.com/javascript_alerts");
 
     }
 
     @Test
     public void jsAlertTest() throws InterruptedException {
-        Driver.get().get("https://practice.cydeo.com/javascript_alerts");
+
         //2. Click for JS Prompt button for alert to be displayed
-        alertPage.buttonClickForPrompt.click();
-
-        Alert alert = Driver.get().switchTo().alert();
-
+        alertPage.jsAlertButton.click();
 
         //3. Write "Hello" in input text
         alert.sendKeys("Hello");

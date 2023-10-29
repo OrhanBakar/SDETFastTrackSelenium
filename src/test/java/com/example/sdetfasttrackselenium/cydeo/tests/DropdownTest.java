@@ -44,10 +44,15 @@ public class DropdownTest {
         actualOption=stateSelect.getFirstSelectedOption().getText();
         Assert.assertEquals(actualOption,"California");
 
-        //5. Select all the states and confirm that Illinois exist in the options
-        dropdownPage.dropdownOptionsCheck(dropdownPage.stateDropdown,"Illinois");
+
     }
 
+    @Test
+    public void verifySpecificOption() {
+        //5. Select all the states and confirm that Illinois exist in the options
+        dropdownPage.dropdownOptionsCheck(dropdownPage.stateDropdown,"Illinois");
+
+    }
 
     @Test
 
@@ -75,25 +80,32 @@ public class DropdownTest {
 @Test
     public void languageDropdownTest(){
         //TC#3
+    //2. Select all the options from multiple language select dropdown
     Select languagesSelect=new Select(dropdownPage.languagesDropdown);
     List<WebElement>languagesOptions=languagesSelect.getOptions();
-    //2. Select all the options from multiple language select dropdown
+
     //3. Print out all the selected values and verify each is selected
     for (WebElement eachOption : languagesOptions) {
         languagesSelect.selectByVisibleText(eachOption.getText());
         System.out.println("Programming language Options = " + eachOption.getText());
-        Assert.assertTrue(eachOption.isSelected(),"Language option did not selected");
+        Assert.assertTrue(eachOption.isSelected(),"Language option was not selected");
     }
 
     //4. Deselect all values and verify each is deselected
     
     languagesSelect.deselectAll();
     for (WebElement eachOption : languagesOptions) {
-        Assert.assertFalse(eachOption.isSelected());
+        Assert.assertTrue(!eachOption.isSelected());
     }
 }
 
-@AfterMethod
+    @Test
+    public void testSelectAllOptions() {
+        dropdownPage.getDropdownOptions(dropdownPage.stateDropdown);
+        dropdownPage.getDropdownOptions(dropdownPage.languagesDropdown);
+    }
+
+    @AfterMethod
     public void tearDown(){
     Driver.closeDriver();
 }

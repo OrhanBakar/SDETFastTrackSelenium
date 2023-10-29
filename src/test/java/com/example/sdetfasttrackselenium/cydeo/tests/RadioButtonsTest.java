@@ -13,23 +13,24 @@ public class RadioButtonsTest {
     public void radioButtonTest(){
         Driver.get().get("https://practice.cydeo.com/radio_buttons");
 
-        radioButtonsPage.yellowButton.click();
+        radioButtonsPage.blueButton.click();
 
-       /* Assert.assertTrue(radioButtonsPage.blueButton.isSelected(),"Blue button is selected");
+        Assert.assertTrue(radioButtonsPage.blueButton.isSelected());
 
-        Assert.assertFalse(radioButtonsPage.footballButton.isSelected(),"Football button is not selected");
+        Assert.assertTrue(!radioButtonsPage.footballButton.isSelected());
 
         radioButtonsPage.footballButton.click();
 
-        Assert.assertTrue(radioButtonsPage.footballButton.isSelected(),"Football button is selected");
+        Assert.assertTrue(radioButtonsPage.footballButton.isSelected());
 
         radioButtonsPage.redButton.click();
 
-        Assert.assertTrue(radioButtonsPage.redButton.isSelected(),"Red button is selected");
+        Assert.assertTrue(radioButtonsPage.redButton.isSelected());
 
-        Assert.assertTrue(radioButtonsPage.blueButton.isSelected(),"Blue button is selected");
+        Assert.assertTrue(!radioButtonsPage.blueButton.isSelected());
 
-        Assert.assertTrue(radioButtonsPage.greenButton.isEnabled(),"Green button is not enabled");*/
+        //Assert.assertTrue(radioButtonsPage.greenButton.isEnabled(),"Green Button is disabled");
+        Assert.assertTrue(!radioButtonsPage.greenButton.isEnabled(),"Green Button is enabled");
     }
     @AfterMethod
     public void tearDown(){

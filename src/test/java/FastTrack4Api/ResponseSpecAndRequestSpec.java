@@ -11,7 +11,7 @@ public class ResponseSpecAndRequestSpec extends SpartanSpecTestBase{
 
         Response response= RestAssured.given()
                 .spec(reqSpec)
-                .when().get("http://3.87.65.105:8000/api/spartans/{id}")
+                .when().get("http://3.80.111.193:8000//api/spartans/{id}")
                 .then().spec(resSpec).extract().response();
         response.prettyPrint();
     }

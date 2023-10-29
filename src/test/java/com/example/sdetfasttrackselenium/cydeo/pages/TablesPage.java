@@ -43,9 +43,8 @@ public class TablesPage {
     public List<String> getAllEmailAddresses() {
         List<String> emailAddresses = new ArrayList<>();
 
-        List<WebElement> emailCells = eMails;
         // Assuming email is in the third column
-        for (WebElement cell : emailCells) {
+        for (WebElement cell : eMails) {
             emailAddresses.add(cell.getText());
         }
 
@@ -55,9 +54,8 @@ public class TablesPage {
     public List<String> getAllLastNames() {
         List<String> lastName = new ArrayList<>();
 
-        List<WebElement> lastNameCells = lastNames;
         // Assuming email is in the third column
-        for (WebElement cell : lastNameCells) {
+        for (WebElement cell : lastNames) {
             lastName.add(cell.getText());
         }
 
@@ -91,9 +89,8 @@ public class TablesPage {
     public List<String> getAllWebAddresses() {
         List<String> webAddresses = new ArrayList<>();
 
-        List<WebElement> webCells = webSites;
         // Assuming email is in the third column
-        for (WebElement webCell : webCells) {
+        for (WebElement webCell : webSites) {
             webAddresses.add(webCell.getText());
         }
 

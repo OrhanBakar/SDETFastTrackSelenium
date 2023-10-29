@@ -9,26 +9,48 @@ import org.testng.asserts.SoftAssert;
 
 public class CheckBoxTest {
     CheckBoxPage checkBoxPage = new CheckBoxPage();
-
-    @Test
+    SoftAssert softAssert = new SoftAssert();
+    @Test//checkboxes
     public void checkBoxTestSoftAssert() {
+        //1. Navigate to "https://practice.cydeo.com/checkboxes"
         Driver.get().get("https://practice.cydeo.com/checkboxes");
+
+        //2. Checbox1 is not selected by default
+        softAssert.assertTrue(!checkBoxPage.checkBox1.isSelected());
+
+        //3. Confirm checkbox2 is selected by default
+        softAssert.assertTrue(checkBoxPage.checkBox2.isSelected());
+
+        //4. Click checkbox1 to select it
         checkBoxPage.checkBox1.click();
-        SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(checkBoxPage.checkBox1.isSelected());
-        checkBoxPage.checkBox1.click();
-        softAssert.assertFalse(checkBoxPage.checkBox1.isSelected(), "Checkbox 1 is not selected");
+
+        //5. Click on checkbox2 to deselect it
+        checkBoxPage.checkBox2.click();
+        softAssert.assertTrue(!checkBoxPage.checkBox2.isSelected());
+
         softAssert.assertAll();
 
     }
 
     @Test
     public void checkBoxTest() {
+        //1. Navigate to "https://practice.cydeo.com/checkboxes"
         Driver.get().get("https://practice.cydeo.com/checkboxes");
+
+        //2. Checkbox1 is not selected by default
+        Assert.assertTrue(!checkBoxPage.checkBox1.isSelected());
+
+        //3. Confirm checkbox2 is selected by default
+        Assert.assertTrue(checkBoxPage.checkBox2.isSelected());
+
+        //4. Click checkbox1 to select it
         checkBoxPage.checkBox1.click();
         Assert.assertTrue(checkBoxPage.checkBox1.isSelected());
-        checkBoxPage.checkBox1.click();
-        Assert.assertFalse(checkBoxPage.checkBox1.isSelected(), "Checkbox 1 is not selected");
+
+        //5. Click on checkbox2 to deselect it
+        checkBoxPage.checkBox2.click();
+        Assert.assertTrue(!checkBoxPage.checkBox2.isSelected());
     }
 
     @AfterMethod

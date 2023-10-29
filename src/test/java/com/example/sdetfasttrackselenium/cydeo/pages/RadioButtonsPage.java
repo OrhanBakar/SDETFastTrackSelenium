@@ -11,28 +11,28 @@ public class RadioButtonsPage {
         PageFactory.initElements(Driver.get(),this);
        
     }
-    @FindBy(name = "color")
+    @FindBy(id= "blue")
     public WebElement blueButton;
 
-    @FindBy(name = "color")
+    @FindBy(id = "red")
     public WebElement redButton;
 
-    @FindBy(name = "color")
+    @FindBy(id = "yellow")
     public WebElement yellowButton;
 
-    @FindBy(name = "color")
+    @FindBy(id = "black")
     public WebElement blackButton;
 
-    @FindBy(name = "color")
+    @FindBy(id = "green")
     public WebElement greenButton;
 
-    @FindBy(name = "sport")
+    @FindBy(id = "basketball")
     public WebElement basketballButton;
 
-    @FindBy(name = "sport")
+    @FindBy(id = "football")
     public WebElement footballButton;
 
-    @FindBy(name = "sport")
+    @FindBy(id = "hockey")
     public WebElement hockeyButton;
 
     @FindBy(name = "sport")

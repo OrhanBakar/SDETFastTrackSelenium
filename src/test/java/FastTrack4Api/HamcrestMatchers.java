@@ -20,7 +20,7 @@ public class HamcrestMatchers extends TestBase {
                 .when().get("/api/spartans")
                 .then().statusCode(200);//then() validation yapmak icin kulanilir
     }
-
+@Test
     public void test2() {
 
         given().accept(ContentType.JSON)
@@ -33,6 +33,7 @@ public class HamcrestMatchers extends TestBase {
                         "gender", is(not("Female")),
                         "phone", equals(7551551687l));
     }
+    @Test
     public void test3() {
 
         List<String> names=given().accept(ContentType.JSON)

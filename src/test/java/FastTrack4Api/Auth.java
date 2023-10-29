@@ -13,7 +13,7 @@ public class Auth{
 
     Response response=given().accept(ContentType.JSON)
             .and().auth().basic("user","user")
-            .when().get("https://3.87.65.105:7000/api/spartans");
+            .when().get("http://3.80.111.193:7000//api/spartans");
 
     response.prettyPrint();
 }

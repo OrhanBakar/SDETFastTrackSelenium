@@ -16,7 +16,7 @@ public class AlertPage {
     public WebElement resultText;
 
     @FindBy(xpath = "//button[@onclick='jsPrompt()']")
-    public WebElement buttonClickForPrompt;
+    public WebElement jsAlertButton;
 
 
     public AlertPage(){

@@ -9,9 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class ExplicitWaitTest {
     ExplicitWaitPracticePage explicitWaitPracticePage=new ExplicitWaitPracticePage();
-    WebDriverWait wait=new WebDriverWait(Driver.get(),15);
+    WebDriverWait wait=new WebDriverWait(Driver.get(), Duration.ofSeconds(15));
     @Test
     public void dynamicLoad1(){
 
