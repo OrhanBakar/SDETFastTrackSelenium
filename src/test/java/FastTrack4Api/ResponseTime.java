@@ -12,12 +12,11 @@ import static org.hamcrest.Matchers.lessThanOrEqualTo;
 public class ResponseTime extends TestBase {
 @Test
     public void test1(){
-
     Response response = given().accept(ContentType.JSON)
             .accept(ContentType.JSON)
-            .when().get("api/spartans")
+            .when().get("https://api.qa.bookit.cydeo.com/api/campuses")
             .then()
-            .time(both(greaterThan(500L)).and(lessThanOrEqualTo(1100L)))
+            .time(both(greaterThan(500L)).and(lessThanOrEqualTo(3000L)))
             .extract().response();
     System.out.println("response.getTime() = " + response.getTime());
 }

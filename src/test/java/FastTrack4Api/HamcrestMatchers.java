@@ -1,14 +1,12 @@
 package FastTrack4Api;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
 import io.restassured.http.*;
 import org.junit.jupiter.api.Test;
 import io.restassured.response.*;
-
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
 
 public class HamcrestMatchers extends TestBase {
@@ -28,7 +26,8 @@ public class HamcrestMatchers extends TestBase {
                 .when().get("/api/spartans/{id}")
                 .then().statusCode(200)//then() validation yapmak icin kulanilir
                 .and().assertThat().contentType(ContentType.JSON)
-                .and().body("name", is("Lothario"),
+                .and()
+                .body("name", is("Lothario"),
                         "id", equalTo(20),
                         "gender", is(not("Female")),
                         "phone", equals(7551551687l));

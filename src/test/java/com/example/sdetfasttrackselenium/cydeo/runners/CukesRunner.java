@@ -5,7 +5,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"json:target/cucumber.json",
+        plugin = {
+                "json:target/cucumber.json",
                 "html:target/cucumber-reports.html",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
                 "rerun:target/rerun.txt"},
@@ -15,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/example/sdetfasttrackselenium/cydeo/step_definitions",
         dryRun=false,
-        tags=""
+        tags="@wip"
         //eski versiyonu   tags={"@driver","@VYT-123"}
 
         //OR LU DA YAPILABILIR

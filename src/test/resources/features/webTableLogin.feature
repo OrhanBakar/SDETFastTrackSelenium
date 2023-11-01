@@ -13,7 +13,7 @@ Feature: WebTable app login
     And user enters password Tester
     And user clicks to login button
     Then user should see url contains order
-  @wip
+
   Scenario: Login scenario with invalid credentials
     When user enters invalid username
     And user enters invalid password

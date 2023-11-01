@@ -20,7 +20,7 @@ public class Auth{
 //Bearer token
 @Test
 public void test2(){
- String token="Bearer (token buraya gelecek. Bearerdan sonra bosluk var)";
+ String token="Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTUxNiIsImF1ZCI6InRlYWNoZXIifQ.saFcTsRyMJQj1e8jhya1zpxngBggh5fC3lGsGyBCrQs";
    given().header("Authorization",token)
            .and().accept(ContentType.JSON)
            .when().get("https://api.qa.bookit.cydeo.com/api/campuses")

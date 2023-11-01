@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class Deserialization extends TestBase{
+public class Deserialization extends TestBase{//Json to Java
 
     @Test
 
@@ -29,7 +29,6 @@ public class Deserialization extends TestBase{
     public void test2(){//converting response to List object
 
         Response response=given().accept(ContentType.JSON)
-                .and().queryParam("gender","Male")
                 .when().get("/api/spartans");
 
         List<Map<String,Object>> maleSpartans=response.as(List.class);
@@ -42,7 +41,7 @@ public class Deserialization extends TestBase{
         Response response=given().accept(ContentType.JSON)
                 .when().get("/api/spartans/20");
 
-        Spartan spartan20=response.as(Spartan.class);
+        Spartan spartan20=response.as(Spartan.class);//POJO
         System.out.println(spartan20);
     }
     @Test
@@ -53,7 +52,7 @@ public class Deserialization extends TestBase{
                 .and().queryParam("nameContains","va")
                 .when().get("/api/spartans/search");
 
-        Search search=response.as(Search.class);
+        Search search=response.as(Search.class);//pojo
         System.out.println(search);
     }
 }

@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Welcome4Element"
+  },
+  "definitions": {
+    "Welcome4Element": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "location": {
+          "type": "string"
+        },
+        "clusters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cluster"
+          }
+        }
+      },
+      "required": [
+        "clusters",
+        "id",
+        "location"
+      ],
+      "title": "Welcome4Element"
+    },
+    "Cluster": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Room"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "rooms"
+      ],
+      "title": "Cluster"
+    },
+    "Room": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "integer"
+        },
+        "withTV": {
+          "type": "boolean"
+        },
+        "withWhiteBoard": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "capacity",
+        "description",
+        "id",
+        "name",
+        "withTV",
+        "withWhiteBoard"
+      ],
+      "title": "Room"
+    }
+  }
+}
